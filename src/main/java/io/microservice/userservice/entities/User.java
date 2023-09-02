@@ -58,6 +58,10 @@ public class User implements Serializable {
     @OneToOne
     private  Experience experience;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private List<Blog> blogList;
+
 }
 
 

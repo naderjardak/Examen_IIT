@@ -17,20 +17,20 @@ public class TargetsController {
     @Autowired
     ITargetsService iTargetsService;
 
-    @PostMapping
+    @PostMapping("createTarget")
     public ResponseEntity<Targets> createTarget(@RequestBody Targets target) {
         Targets createdTarget = iTargetsService.createTarget(target);
         return ResponseEntity.ok(createdTarget);
     }
 
-    @GetMapping
+    @GetMapping("getAllTargets")
     public ResponseEntity<List<Targets>> getAllTargets() {
         List<Targets> targets = iTargetsService.getAllTargets();
         return ResponseEntity.ok(targets);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Targets> getTargetById(@PathVariable Long id) {
+    @GetMapping("/getTargetById")
+    public ResponseEntity<Targets> getTargetById(@RequestParam Long id) {
         Targets target = iTargetsService.getTargetById(id);
         if (target != null) {
             return ResponseEntity.ok(target);
@@ -51,8 +51,8 @@ public class TargetsController {
         }
     }*/
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTarget(@PathVariable Long id) {
+    @DeleteMapping("/deleteTarget")
+    public ResponseEntity<Void> deleteTarget(@RequestParam Long id) {
         iTargetsService.deleteTarget(id);
         return ResponseEntity.noContent().build();
     }

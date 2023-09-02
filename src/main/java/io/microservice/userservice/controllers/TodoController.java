@@ -17,20 +17,20 @@ public class TodoController {
     @Autowired
     ITodoService iTodoService;
 
-    @PostMapping
+    @PostMapping("/createToDo")
     public ResponseEntity<ToDo> createToDo(@RequestBody ToDo toDo) {
         ToDo createdToDo = iTodoService.createToDo(toDo);
         return ResponseEntity.ok(createdToDo);
     }
 
-    @GetMapping
+    @GetMapping("getAllToDos")
     public ResponseEntity<List<ToDo>> getAllToDos() {
         List<ToDo> todos = iTodoService.getAllToDos();
         return ResponseEntity.ok(todos);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<ToDo> getToDoById(@PathVariable Long id) {
+    @GetMapping("/getToDoById")
+    public ResponseEntity<ToDo> getToDoById(@RequestParam Long id) {
         ToDo toDo = iTodoService.getToDoById(id);
         if (toDo != null) {
             return ResponseEntity.ok(toDo);
@@ -51,8 +51,8 @@ public class TodoController {
         }
     }*/
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteToDo(@PathVariable Long id) {
+    @DeleteMapping("/deleteToDo")
+    public ResponseEntity<Void> deleteToDo(@RequestParam Long id) {
         iTodoService.deleteToDo(id);
         return ResponseEntity.noContent().build();
     }

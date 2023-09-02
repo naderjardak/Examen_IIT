@@ -22,14 +22,14 @@ public class EducationController {
         return ResponseEntity.ok(createdEducation);
     }
 
-    @GetMapping
+    @GetMapping("/getAllEducations")
     public ResponseEntity<List<Education>> getAllEducations() {
         List<Education> educations = iEducationService.getAllEducations();
         return ResponseEntity.ok(educations);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Education> getEducationById(@PathVariable Long id) {
+    @GetMapping("/getEducationById")
+    public ResponseEntity<Education> getEducationById(@RequestParam Long id) {
         Education education = iEducationService.getEducationById(id);
         if (education != null) {
             return ResponseEntity.ok(education);
@@ -38,8 +38,8 @@ public class EducationController {
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Education> updateEducation(@PathVariable Long id, @RequestBody Education education) {
+    @PutMapping("/updateEducation")
+    public ResponseEntity<Education> updateEducation(@RequestParam Long id, @RequestBody Education education) {
         Education existingEducation = iEducationService.getEducationById(id);
         if (existingEducation != null) {
             education.setId(id);
@@ -50,8 +50,8 @@ public class EducationController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteEducation(@PathVariable Long id) {
+    @DeleteMapping("/deleteEducation")
+    public ResponseEntity<Void> deleteEducation(@RequestParam Long id) {
         iEducationService.deleteEducation(id);
         return ResponseEntity.noContent().build();
     }

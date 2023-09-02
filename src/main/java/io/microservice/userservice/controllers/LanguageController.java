@@ -16,20 +16,20 @@ public class LanguageController {
     @Autowired
     ILanguageService iLanguageService;
 
-    @PostMapping
+    @PostMapping("createLanguage")
     public ResponseEntity<Language> createLanguage(@RequestBody Language language) {
         Language createdLanguage = iLanguageService.createLanguage(language);
         return ResponseEntity.ok(createdLanguage);
     }
 
-    @GetMapping
+    @GetMapping("getAllLanguages")
     public ResponseEntity<List<Language>> getAllLanguages() {
         List<Language> languages = iLanguageService.getAllLanguages();
         return ResponseEntity.ok(languages);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Language> getLanguageById(@PathVariable Long id) {
+    @GetMapping("/getLanguageById")
+    public ResponseEntity<Language> getLanguageById(@RequestParam Long id) {
         Language language = iLanguageService.getLanguageById(id);
         if (language != null) {
             return ResponseEntity.ok(language);
@@ -38,8 +38,8 @@ public class LanguageController {
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Language> updateLanguage(@PathVariable Long id, @RequestBody Language language) {
+    @PutMapping("/updateLanguage")
+    public ResponseEntity<Language> updateLanguage(@RequestParam Long id, @RequestBody Language language) {
         Language existingLanguage = iLanguageService.getLanguageById(id);
         if (existingLanguage != null) {
             language.setId(id);
@@ -50,8 +50,8 @@ public class LanguageController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteLanguage(@PathVariable Long id) {
+    @DeleteMapping("/deleteLanguage")
+    public ResponseEntity<Void> deleteLanguage(@RequestParam Long id) {
         iLanguageService.deleteLanguage(id);
         return ResponseEntity.noContent().build();
     }

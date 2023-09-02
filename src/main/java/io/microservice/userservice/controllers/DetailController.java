@@ -27,8 +27,8 @@ public class DetailController {
         return ResponseEntity.ok(details);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Detail> getDetailById(@PathVariable Long id) {
+    @GetMapping("/getDetailById")
+    public ResponseEntity<Detail> getDetailById(@RequestParam Long id) {
         return iDetailService.getDetailById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -45,8 +45,8 @@ public class DetailController {
         return ResponseEntity.noContent().build();
     }*/
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteDetail(@PathVariable Long id) {
+    @DeleteMapping("/deleteDetail")
+    public ResponseEntity<Void> deleteDetail(@RequestParam Long id) {
         iDetailService.deleteDetail(id);
         return ResponseEntity.noContent().build();
     }

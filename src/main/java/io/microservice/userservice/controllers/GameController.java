@@ -12,25 +12,23 @@ import java.util.List;
 @RequestMapping("/games")
 public class GameController {
 
-
-
     @Autowired
     IGameService iGameService;
 
-    @PostMapping
+    @PostMapping("createGames")
     public ResponseEntity<Games> createGames(@RequestBody Games games) {
         Games createdGames = iGameService.createGames(games);
         return ResponseEntity.ok(createdGames);
     }
 
-    @GetMapping
+    @GetMapping("getAllGames")
     public ResponseEntity<List<Games>> getAllGames() {
         List<Games> games = iGameService.getAllGames();
         return ResponseEntity.ok(games);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Games> getGamesById(@PathVariable Long id) {
+    @GetMapping("/getGamesById")
+    public ResponseEntity<Games> getGamesById(@RequestParam Long id) {
         Games games = iGameService.getGamesById(id);
         if (games != null) {
             return ResponseEntity.ok(games);
@@ -51,13 +49,13 @@ public class GameController {
         }
     }
 */
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteGames(@PathVariable Long id) {
+    @DeleteMapping("/deleteGames")
+    public ResponseEntity<Void> deleteGames(@RequestParam Long id) {
         iGameService.deleteGames(id);
         return ResponseEntity.noContent().build();
     }
-    @GetMapping("/{gameIds}")
-    public ResponseEntity<List<Games>> getGamesByIds(@PathVariable List<Long> gameIds) {
+    @GetMapping("/getGamesByIds")
+    public ResponseEntity<List<Games>> getGamesByIds(@RequestParam List<Long> gameIds) {
         List<Games> games =iGameService.getGamesByIds(gameIds);
         return ResponseEntity.ok(games);
     }

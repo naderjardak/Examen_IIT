@@ -29,8 +29,8 @@ public class TestsController {
         return ResponseEntity.ok(tests);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Tests> getTestsById(@PathVariable Long id) {
+    @GetMapping("/getTestsById")
+    public ResponseEntity<Tests> getTestsById(@RequestParam Long id) {
         Tests tests = iTestsService.getTestsById(id);
         if (tests != null) {
             return ResponseEntity.ok(tests);
@@ -51,8 +51,8 @@ public class TestsController {
         }
     }*/
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTests(@PathVariable Long id) {
+    @DeleteMapping("/deleteTests")
+    public ResponseEntity<Void> deleteTests(@RequestParam Long id) {
         iTestsService.deleteTests(id);
         return ResponseEntity.noContent().build();
     }

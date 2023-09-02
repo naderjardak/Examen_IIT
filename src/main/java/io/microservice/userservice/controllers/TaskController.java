@@ -41,13 +41,13 @@ public class TaskController {
 
 
     @DeleteMapping("/deleteTask")
-    public void deleteTask(Long taskId){
+    public void deleteTask(@RequestParam Long taskId){
     iTaskService.deleteTask(taskId);
     }
 
 
 
-    @GetMapping("AllSessionTasks")
+    @GetMapping("/AllSessionTasks")
     public List<Task> AllSessionTasks(){return iTaskService.AllSessionTasks();}
 
 }

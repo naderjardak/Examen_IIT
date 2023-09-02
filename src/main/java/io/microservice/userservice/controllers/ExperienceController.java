@@ -17,20 +17,20 @@ public class ExperienceController {
     @Autowired
     IExperienceService iExperienceService;
 
-    @PostMapping
+    @PostMapping("/createExperience")
     public ResponseEntity<Experience> createExperience(@RequestBody Experience experience) {
         Experience createdExperience = iExperienceService.createExperience(experience);
         return ResponseEntity.ok(createdExperience);
     }
 
-    @GetMapping
+    @GetMapping("/getAllExperiences")
     public ResponseEntity<List<Experience>> getAllExperiences() {
         List<Experience> experiences = iExperienceService.getAllExperiences();
         return ResponseEntity.ok(experiences);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Experience> getExperienceById(@PathVariable long id) {
+    @GetMapping("/getExperienceById")
+    public ResponseEntity<Experience> getExperienceById(@RequestParam long id) {
         Experience experience = iExperienceService.getExperienceById(id);
         if (experience != null) {
             return ResponseEntity.ok(experience);
@@ -39,8 +39,8 @@ public class ExperienceController {
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Experience> updateExperience(@PathVariable long id, @RequestBody Experience experience) {
+    @PutMapping("/updateExperience")
+    public ResponseEntity<Experience> updateExperience(@RequestParam long id, @RequestBody Experience experience) {
         Experience existingExperience = iExperienceService.getExperienceById(id);
         if (existingExperience != null) {
             experience.setId(id);
@@ -51,8 +51,8 @@ public class ExperienceController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteExperience(@PathVariable long id) {
+    @DeleteMapping("/deleteExperience")
+    public ResponseEntity<Void> deleteExperience(@RequestParam long id) {
         iExperienceService.deleteExperience(id);
         return ResponseEntity.noContent().build();
 
