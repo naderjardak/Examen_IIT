@@ -1,8 +1,8 @@
 package io.microservice.userservice.Service;
 
+import io.microservice.userservice.repositories.TestsRepository;
 import io.microservice.userservice.Service.interfaces.ITestsService;
 import io.microservice.userservice.entities.Tests;
-import io.microservice.userservice.repositories.TestsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

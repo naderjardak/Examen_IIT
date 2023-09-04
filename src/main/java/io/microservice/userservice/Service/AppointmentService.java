@@ -1,10 +1,10 @@
 package io.microservice.userservice.Service;
 
-import io.microservice.userservice.Service.interfaces.IAppointmentService;
 import io.microservice.userservice.entities.Appointment;
 import io.microservice.userservice.entities.User;
 import io.microservice.userservice.repositories.AppointmentRepository;
 import io.microservice.userservice.repositories.UserrRepository;
+import io.microservice.userservice.Service.interfaces.IAppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
 package io.microservice.userservice.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.microservice.userservice.entities.enmus.EducationType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,6 +1,5 @@
 package io.microservice.userservice.controllers;
 
-import io.microservice.userservice.Service.BlogService;
 import io.microservice.userservice.Service.interfaces.IBlogService;
 import io.microservice.userservice.entities.Blog;
 import io.microservice.userservice.entities.Images;

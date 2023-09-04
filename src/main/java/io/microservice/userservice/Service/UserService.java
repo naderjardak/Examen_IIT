@@ -1,12 +1,11 @@
 package io.microservice.userservice.Service;
 
 
-import io.microservice.userservice.Service.interfaces.UserInterface;
 import io.microservice.userservice.configuration.SessionService;
+import io.microservice.userservice.repositories.RoleRepository;
+import io.microservice.userservice.Service.interfaces.UserInterface;
 import io.microservice.userservice.entities.Role;
 import io.microservice.userservice.entities.User;
-import io.microservice.userservice.entities.enmus.RoleType;
-import io.microservice.userservice.repositories.RoleRepository;
 import io.microservice.userservice.repositories.UserrRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

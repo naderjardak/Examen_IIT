@@ -1,7 +1,5 @@
 package io.microservice.userservice.entities;
 
-
-import io.microservice.userservice.entities.enmus.RoleType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,27 +8,26 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
-
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-public class Role implements Serializable {
-
+public class Comment implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private RoleType type;
+    private String message;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "role")
-    private List<User> users;
+    @ManyToOne
+    private Blog blog;
 
+    @OneToOne
+    private Images images;
 
-
+    @ManyToOne
+    private User user;
 }

@@ -1,8 +1,8 @@
 package io.microservice.userservice.Service;
 
-import io.microservice.userservice.Service.interfaces.ILanguageService;
 import io.microservice.userservice.entities.Language;
 import io.microservice.userservice.repositories.LanguageRepository;
+import io.microservice.userservice.Service.interfaces.ILanguageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

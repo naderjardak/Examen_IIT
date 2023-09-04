@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 @Service
 public class ApplicationUserDetailsService implements UserDetailsService {
@@ -23,7 +22,7 @@ public class ApplicationUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        io.microservice.userservice.entities.User user = userService.findByEmail(email);
+        User user = userService.findByEmail(email);
 
         Collection<SimpleGrantedAuthority> authorities =new ArrayList<>();
         String role = user.getRole().getType().toString();

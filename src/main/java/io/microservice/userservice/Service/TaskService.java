@@ -1,15 +1,15 @@
 package io.microservice.userservice.Service;
 
 
-import io.microservice.userservice.Service.interfaces.ITaskService;
 import io.microservice.userservice.configuration.SessionService;
+import io.microservice.userservice.repositories.TaskRepository;
+import io.microservice.userservice.repositories.UserrRepository;
+import io.microservice.userservice.Service.interfaces.ITaskService;
 
 
 import io.microservice.userservice.entities.Task;
 
 
-import io.microservice.userservice.repositories.TaskRepository;
-import io.microservice.userservice.repositories.UserrRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

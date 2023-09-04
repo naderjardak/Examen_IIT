@@ -1,8 +1,8 @@
 package io.microservice.userservice.Service;
 
+import io.microservice.userservice.repositories.GameRepository;
 import io.microservice.userservice.Service.interfaces.IGameService;
 import io.microservice.userservice.entities.Games;
-import io.microservice.userservice.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

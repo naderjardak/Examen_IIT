@@ -1,8 +1,8 @@
 package io.microservice.userservice.Service;
 
+import io.microservice.userservice.repositories.TodoRepository;
 import io.microservice.userservice.Service.interfaces.ITodoService;
 import io.microservice.userservice.entities.ToDo;
-import io.microservice.userservice.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface UserInterface {
-    User Create(User u,Long n);
+    User Create(User u, Long n);
 
     void  DeleteById(long id);
 

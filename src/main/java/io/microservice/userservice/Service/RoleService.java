@@ -1,9 +1,9 @@
 package io.microservice.userservice.Service;
 
 
-import io.microservice.userservice.Service.interfaces.RoleInterface;
 import io.microservice.userservice.entities.Role;
 import io.microservice.userservice.repositories.RoleRepository;
+import io.microservice.userservice.Service.interfaces.RoleInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
