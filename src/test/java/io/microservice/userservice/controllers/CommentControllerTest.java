@@ -1,7 +1,7 @@
 package io.microservice.userservice.controllers;
 
 import io.microservice.userservice.Service.interfaces.ICommentService;
-import io.microservice.userservice.entities.Comments;
+import io.microservice.userservice.entities.Comment;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,13 +28,13 @@ public class CommentControllerTest {
     private CommentController commentController;
 
     private Long blogId;
-    private Comments comment;
+    private Comment comment;
     private MultipartFile file;
 
     @BeforeEach
     public void setUp() {
         blogId = 1L;
-        comment = new Comments();
+        comment = new Comment();
         file = new MockMultipartFile("file", "Hello, World!".getBytes());
     }
 
@@ -47,7 +47,7 @@ public class CommentControllerTest {
 
     @Test
     public void testCreateCommentWhenFileCannotBeReadThenIOExceptionIsThrown() throws IOException {
-        doThrow(IOException.class).when(commentService).createComment(any(Long.class), String.valueOf(any(Comments.class)), any(MultipartFile.class));
+        doThrow(IOException.class).when(commentService).createComment(any(Long.class), String.valueOf(any(Comment.class)), any(MultipartFile.class));
 
         try {
             commentController.createComment(blogId, String.valueOf(comment), file);

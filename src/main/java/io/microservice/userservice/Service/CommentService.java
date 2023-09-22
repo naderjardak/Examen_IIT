@@ -3,7 +3,7 @@ package io.microservice.userservice.Service;
 import io.microservice.userservice.Service.interfaces.ICommentService;
 import io.microservice.userservice.configuration.SessionService;
 import io.microservice.userservice.entities.Blog;
-import io.microservice.userservice.entities.Comments;
+import io.microservice.userservice.entities.Comment;
 import io.microservice.userservice.entities.Images;
 import io.microservice.userservice.entities.User;
 import io.microservice.userservice.repositories.BlogRepository;
@@ -42,7 +42,7 @@ public class CommentService implements ICommentService {
 
         Blog blog = blogRepository.findById(blogId).orElse(null);
         if (blog != null) {
-            Comments comment1 = new Comments();
+            Comment comment1 = new Comment();
 
             // Check if a file was uploaded
             if (file != null && !file.isEmpty()) {

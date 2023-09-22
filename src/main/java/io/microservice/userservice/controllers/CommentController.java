@@ -1,8 +1,6 @@
 package io.microservice.userservice.controllers;
 
-import io.microservice.userservice.Service.CommentService;
 import io.microservice.userservice.Service.interfaces.ICommentService;
-import io.microservice.userservice.entities.Comments;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
