@@ -18,7 +18,7 @@ public class BlogController {
     @Autowired
     private IBlogService blogService;
 
-    @PostMapping
+    @PostMapping("/createBlog")
     public Blog createBlog(@RequestBody Blog blog) {
         return blogService.createBlog(blog);
     }
@@ -38,7 +38,7 @@ public class BlogController {
         return blogService.getBlogById(id);
     }
 
-    @GetMapping("getAllBlogs")
+    @GetMapping("/getAllBlogs")
     public List<Blog> getAllBlogs() {
         return blogService.getAllBlogs();
     }

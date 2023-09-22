@@ -35,7 +35,7 @@ public class Blog  implements Serializable {
     List<Images> imagesList;
 
     @OneToMany(mappedBy = "blog")
-    List<Comment> commentList;
+    List<Comments> commentList;
 
     @ManyToOne
     private User user;

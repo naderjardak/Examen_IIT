@@ -1,7 +1,7 @@
 package io.microservice.userservice.controllers;
 
 import io.microservice.userservice.Service.interfaces.ICommentService;
-import io.microservice.userservice.entities.Comment;
+import io.microservice.userservice.entities.Comments;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,31 +28,31 @@ public class CommentControllerTest {
     private CommentController commentController;
 
     private Long blogId;
-    private Comment comment;
+    private Comments comment;
     private MultipartFile file;
 
     @BeforeEach
     public void setUp() {
         blogId = 1L;
-        comment = new Comment();
+        comment = new Comments();
         file = new MockMultipartFile("file", "Hello, World!".getBytes());
     }
 
     @Test
     public void testCreateCommentWhenInvokedThenServiceMethodIsCalled() throws IOException {
-        commentController.createComment(blogId, comment, file);
+        commentController.createComment(blogId, String.valueOf(comment), file);
 
-        verify(commentService).createComment(eq(blogId), eq(comment), eq(file));
+        verify(commentService).createComment(eq(blogId), eq(String.valueOf(comment)), eq(file));
     }
 
     @Test
     public void testCreateCommentWhenFileCannotBeReadThenIOExceptionIsThrown() throws IOException {
-        doThrow(IOException.class).when(commentService).createComment(any(Long.class), any(Comment.class), any(MultipartFile.class));
+        doThrow(IOException.class).when(commentService).createComment(any(Long.class), String.valueOf(any(Comments.class)), any(MultipartFile.class));
 
         try {
-            commentController.createComment(blogId, comment, file);
+            commentController.createComment(blogId, String.valueOf(comment), file);
         } catch (IOException e) {
-            verify(commentService).createComment(eq(blogId), eq(comment), eq(file));
+            verify(commentService).createComment(eq(blogId), String.valueOf(eq(comment)), eq(file));
             throw e;
         }
     }

@@ -13,7 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Comment implements Serializable {
+public class Comments implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
