@@ -51,7 +51,7 @@ public class CommentService implements ICommentService {
                 Files.copy(file.getInputStream(), filePath1, StandardCopyOption.REPLACE_EXISTING);
 
                 Images images = new Images();
-                images.setUrl(FILE_DIRECTORY + "/" + file.getOriginalFilename());
+                images.setUrl(file.getOriginalFilename());
                 images = imagesRepository.save(images);
 
                 comment1.setImages(images);

@@ -3,12 +3,14 @@ package io.microservice.userservice.Service.interfaces;
 import io.microservice.userservice.entities.Blog;
 import io.microservice.userservice.entities.Images;
 import io.microservice.userservice.entities.enmus.BlogStatus;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface IBlogService {
 
-    Blog createBlog(Blog blog);
+    Blog createBlog(String msg, MultipartFile file)throws IOException;
     Blog updateBlog(Long id, Blog blog);
     void deleteBlog(Long id);
     Blog getBlogById(Long id);

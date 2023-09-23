@@ -6,9 +6,12 @@ import io.microservice.userservice.entities.Images;
 import io.microservice.userservice.entities.enmus.BlogStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -18,9 +21,9 @@ public class BlogController {
     @Autowired
     private IBlogService blogService;
 
-    @PostMapping("/createBlog")
-    public Blog createBlog(@RequestBody Blog blog) {
-        return blogService.createBlog(blog);
+    @PostMapping(value="/createBlog", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public Blog createBlog(@RequestParam String msg,@RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
+        return blogService.createBlog(msg, file);
     }
 
     @PutMapping("/updateBlog")
@@ -72,7 +75,7 @@ public class BlogController {
         }
     }
 
-    @PatchMapping("/updateBlogStatus")
+    @PutMapping("/updateBlogStatus")
     public ResponseEntity<?> updateBlogStatus(
             @RequestParam Long blogId,
             @RequestParam BlogStatus newStatus

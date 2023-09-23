@@ -1,5 +1,5 @@
 package io.microservice.userservice.entities.enmus;
 
 public enum RoleType {
-    ADMINISTRATOR,PROFESSIONAL,SPECIALIST
+    ADMINISTRATOR,PROFESSIONAL,USER
 }
