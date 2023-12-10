@@ -12,10 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 
 @SpringBootApplication
-@EnableAspectJAutoProxy
-@EnableScheduling
-@OpenAPIDefinition(info = @Info(title = "B2C", version = "1.0"))
-@SecurityScheme(name = "bearerAuth", scheme = "bearer", type = SecuritySchemeType.HTTP, in = SecuritySchemeIn.HEADER)
+@OpenAPIDefinition(info = @Info(title = "Examen", version = "1.0"))
 public class B2CServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(B2CServiceApplication.class, args);
